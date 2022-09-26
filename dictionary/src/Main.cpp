@@ -14,17 +14,43 @@ im waaay too stupid for this
 #include <vector>
 using namespace std;
 
-struct car {
+struct MinStruct {
 	string key;
 	string value;
 };
 
-class storage
+class Map
 {
-	string empty = "empty";
-	int structnmbr = 0;
+public:
+	MinStruct minstruct;
+	vector<MinStruct> structs;
+
+	void InputPair()
+	{
+		string keyinput;
+		string valueinput;
+		cin >> keyinput;
+		cin >> valueinput;
+		minstruct.key = keyinput;
+		minstruct.value = valueinput;
+		structs.push_back(minstruct);
+	}
+
+	void SearchKeyPair()
+	{
+		string searchkeyinput;
+		cin >> searchkeyinput;
+		if (minstruct.key == searchkeyinput)
+		{
+			cout << minstruct.key;
+			cout << minstruct.value;
+		}
+	}
 };
 
-int main() {
-	return 0;
+int main() 
+{
+	Map map;
+	map.InputPair();
+	map.SearchKeyPair();
 }
