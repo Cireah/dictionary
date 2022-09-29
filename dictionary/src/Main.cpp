@@ -14,7 +14,7 @@ im waaay too stupid for this
 #include <vector>
 using namespace std;
 
-struct MinStruct {
+struct Structing {
 	string key;
 	string value;
 };
@@ -22,28 +22,55 @@ struct MinStruct {
 class Map
 {
 public:
-	MinStruct minstruct;
-	vector<MinStruct> structs;
+	Structing structy;
+	vector<Structing> vect;
 
 	void InputPair()
 	{
+		cout << "input\n";
 		string keyinput;
 		string valueinput;
 		cin >> keyinput;
 		cin >> valueinput;
-		minstruct.key = keyinput;
-		minstruct.value = valueinput;
-		structs.push_back(minstruct);
+		structy.key = keyinput;
+		structy.value = valueinput;
+		vect.push_back(structy);
 	}
 
-	void SearchKeyPair()
+	void SearchKey()
 	{
+		cout << "searchkey\n";
 		string searchkeyinput;
 		cin >> searchkeyinput;
-		if (minstruct.key == searchkeyinput)
+		if (structy.key == searchkeyinput)
 		{
-			cout << minstruct.key;
-			cout << minstruct.value;
+			cout << structy.key << "\n" << structy.value;
+		}
+	}
+	void RemovePair()
+	{
+		cout << "removepair\n";
+		string removepairinput;
+		cin >> removepairinput;
+		if (structy.key == removepairinput || structy.value == removepairinput)
+		{
+			structy.key = "null";
+			structy.value = "null";
+		}
+	}
+	void ClearStruct()
+	{
+		cout << "clearstruct\n";
+		structy = {};
+	}
+	void SearchValue()
+	{
+		cout << "searchvalue\n";
+		string searchvalueinput;
+		cin >> searchvalueinput;
+		if (structy.value == searchvalueinput)
+		{
+			cout << structy.key << "\n" << structy.value;
 		}
 	}
 };
@@ -52,5 +79,8 @@ int main()
 {
 	Map map;
 	map.InputPair();
-	map.SearchKeyPair();
+	map.RemovePair();
+	map.SearchKey();
+	map.SearchValue();
+	map.ClearStruct();
 }
